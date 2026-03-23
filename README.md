@@ -15,4 +15,4 @@ This repository is for:
 - building small examples that can grow into larger projects
 - keeping a structured record of progress
 
-## Repository Structure
+

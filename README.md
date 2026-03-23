@@ -3,16 +3,26 @@
 A clean collection of Rust examples, mini-projects, and practice programs built while learning and exploring the language.
 
 This repo is meant to stay simple and organized:
-- each folder is its own Cargo project
-- examples focus on one concept at a time
-- code is kept readable so it is easy to revisit later
+- Each folder is its own Cargo project
+- Examples focus on one concept at a time
+- Code is kept readable so it’s easy to revisit later
 
 ## Purpose
 
 This repository is for:
-- learning core Rust concepts
-- practicing syntax and problem solving
-- building small examples that can grow into larger projects
-- keeping a structured record of progress
+- Learning core Rust concepts
+- Practicing syntax and problem-solving
+- Building small examples that can grow into larger projects
+- Keeping a structured record of progress
 
+## Cargo Commands
+> Note: this is not all of them, just the main ones.
 
+- `cargo new` — start a new project
+- `cargo add` — add a dependency
+- `cargo check` — quickly check for errors
+- `cargo build` — compile the project
+- `cargo run` — build and run the program
+- `cargo test` — run tests
+- `cargo doc` — build documentation
+- `cargo clean` — remove old build files

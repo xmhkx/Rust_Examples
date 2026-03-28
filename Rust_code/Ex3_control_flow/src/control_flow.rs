@@ -70,7 +70,7 @@ for value in array{
 
 // for with ranges
 
-for i in 1..=5 {
+for i in 1..=6 {
     println!("the value of i is {i}");
 }
 

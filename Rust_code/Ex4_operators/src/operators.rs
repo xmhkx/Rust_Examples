@@ -7,7 +7,8 @@ They can be categorized into several types, including:
 3. Comparison Operators: ==, !=, >, <, >=, <=
 4. Logical Operators: &&, ||, !
 5. Bitwise Operators: &, |, ^, <<, >>
-6. Operator Precedence and Associativity
+6. unary Operators: -, !
+7. Operator Precedence and Associativity
 
 */
 
@@ -95,7 +96,7 @@ fn main() {
     /*
     formula:
     key note: logical operators are used to combine multiple boolean expressions
-    logical operators in Rust work with boolean values
+    also can be used with variables that aren't boolean values
 
     logical AND: variable && variable
     logical OR: variable || variable
@@ -137,39 +138,40 @@ fn main() {
     let right_shift = bit1 >> 2; // right shift by 2 bits
     println!("Bitwise AND: {bitwise_and}, Bitwise OR: {bitwise_or}, Bitwise XOR: {bitwise_xor}, Left Shift: {left_shift}, Right Shift: {right_shift}");
 
-    //6. Operator Precedence and Associativity
+
+    //6. Unary Operators
+    /*
+    formula:
+    key note: unary operators operate on a single operand and return a new value
+    negation: -variable
+    logical NOT: !variable
+    */
+    let num = 5;
+    let negation = -num; // negation
+    let logical_not = !true; // logical NOT
+    println!("Negation: {negation}, Logical NOT: {logical_not}");
+
+    //7. Operator Precedence and Associativity
     /* 
     precedence = which operation happens first
     associativity = which direction operations happen in when they are equal
     formula for operator precedence and associativity is:
 
-    variable + variable * variable // multiplication happens first
-    (variable + variable) * variable // parentheses happen first
-    variable - variable - variable // left to right associativity
-    variable / variable * variable // left to right when precedence is equal
-    !variable && variable // ! happens before &&
-    variable > variable && variable < variable // comparisons happen before &&
-    variable == variable || variable == variable // comparisons happen before ||
-    -variable * variable // negation happens first
-    
+    variable + variable * variable // multiplication happens first because it has higher precedence than addition
+    (variable + variable) * variable // addition happens first because of the parentheses
+    variable - variable - variable // left to right associativity, so the first subtraction happens first
+    variable / variable * variable // left to right associativity, so the division happens first
+    -variable * variable // negation happens first because it has higher precedence than multiplication
+    !variable && variable // logical NOT happens first because it has higher precedence than logical AND
+    variable > variable && variable < variable // comparison operators have higher precedence than logical operators, so the comparisons happen first, then the logical AND, then the logical OR
+    variable == variable || variable != variable // comparison operators have higher precedence than logical operators, so the comparisons happen first, then the logical OR
     */
-    let precedence_result_1 = 2 + 3 * 4;
-    let precedence_result_2 = (2 + 3) * 4;
-    let associativity_result_1 = 20 - 5 - 3;
-    let associativity_result_2 = 20 / 5 * 2;
-    let logical_precedence_1 = !false && true;
-    let logical_precedence_2 = 10 > 5 && 3 < 7;
-    let logical_precedence_3 = 10 == 5 || 8 == 8;
-    let unary_precedence = -5 * 2;
 
-    println!("2 + 3 * 4 = {precedence_result_1}");
-    println!("(2 + 3) * 4 = {precedence_result_2}");
-    println!("20 - 5 - 3 = {associativity_result_1}");
-    println!("20 / 5 * 2 = {associativity_result_2}");
-    println!("!false && true = {logical_precedence_1}");
-    println!("10 > 5 && 3 < 7 = {logical_precedence_2}");
-    println!("10 == 5 || 8 == 8 = {logical_precedence_3}");
-    println!("-5 * 2 = {unary_precedence}");
-
+    let precedence_result = 10 + 5 * 2; // multiplication happens first, so the result is 10 + (5 * 2) = 20
+    let associativity_result = 10 - 5 - 2; // left to right associativity, so the result is (10 - 5) - 2 = 3
+    println!("Precedence Result: {precedence_result}, Associativity Result: {associativity_result}");
+    
+    
+    
 
 }

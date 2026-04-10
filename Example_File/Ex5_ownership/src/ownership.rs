@@ -84,6 +84,26 @@ fn main() {
     name_change.push_str(" Smith"); // change the name through the mutable reference
     println!("Modified name: {name}"); // this works because name is still valid here
 
+    // !!!!!!
+    // let name_change = dangling_reference(); // this will cause an error because we are trying to return a reference to a value that is created inside the function and will be dropped when the function ends, this is called a dangling reference, Rust prevents this at compile time
+
+
+    // 3. Slices    
+    
+
+    let slices = String::from("Apple Pie");
+    let Grades = [60, 70, 80, 90, 100];
+
+    let slice1 = &slices[0..5]; // this is a string slice, this is 0-5 
+    let slice2 = &slices[6..]; // this is another string slice, this is 6-end of the string
+
+    let grade_slice = &Grades[..4]; // this is a slice of the array, this is begining-3
+    let grade_slice2 = &Grades[..]; // this is another slice of the array, this is begining-end of the array
+    println!("Slices: '{slice1}', '{slice2}'"); // this works because slice
+
+    // {:?} is the debug format, its used mostly for arrays and vectors, it will print the array in a nice format and good for printing tuples
+    println!("Grade slices: '{:?}', '{:?}'", grade_slice, grade_slice2); // this works because slice
+
 
 }
 
@@ -111,4 +131,13 @@ fn better_calculate_length(s: &String) -> usize {
 
 fn change_string(s: &mut String) { // &mut is a mutable reference, we can change the string through this reference
     s.push_str(", world!"); // change the string by appending ", world!" to it
+
+// bad function don't do this !!!!!, 
+/*
+fn dangling_reference(string: String) -> &String{  
+    let string = String::from("Bobby"); 
+
+    &string 
+}// string is dropped right after function ends so &string refers to a value no longer valid
+ */
 }
